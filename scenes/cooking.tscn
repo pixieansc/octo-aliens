@@ -1,0 +1,131 @@
+[gd_scene load_steps=19 format=3 uid="uid://dthmre0rxs5j0"]
+
+[ext_resource type="Script" uid="uid://ddfvv6wy2hdp7" path="res://scripts/cooking.gd" id="1_2iow3"]
+[ext_resource type="Texture2D" uid="uid://c8mdfwrenjuiu" path="res://art/col.png" id="2_xian5"]
+[ext_resource type="Texture2D" uid="uid://qs5bpuxcwy80" path="res://art/control.png" id="3_wuimh"]
+[ext_resource type="Script" uid="uid://4jiws0rrx6ef" path="res://scripts/flame.gd" id="4_wuimh"]
+[ext_resource type="Texture2D" uid="uid://s27i0eftqoox" path="res://art/flame.png" id="5_58wjq"]
+[ext_resource type="Texture2D" uid="uid://b5xek2e62xld8" path="res://art/under.png" id="6_p08t8"]
+[ext_resource type="Texture2D" uid="uid://cvd404q0qiryq" path="res://art/over-white.png" id="7_o2php"]
+[ext_resource type="Texture2D" uid="uid://bwu0qmxxwgrbg" path="res://art/progress.png" id="7_p08t8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlm30"]
+size = Vector2(32, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p08t8"]
+atlas = ExtResource("5_58wjq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2php"]
+atlas = ExtResource("5_58wjq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoeje"]
+atlas = ExtResource("5_58wjq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wra60"]
+atlas = ExtResource("5_58wjq")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tath0"]
+atlas = ExtResource("5_58wjq")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4vg1"]
+atlas = ExtResource("5_58wjq")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nbag"]
+atlas = ExtResource("5_58wjq")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mi8yf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p08t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2php")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoeje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wra60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tath0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4vg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nbag")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2php"]
+height = 24.0
+
+[node name="cooking" type="Node2D"]
+top_level = true
+script = ExtResource("1_2iow3")
+
+[node name="col" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 4)
+texture = ExtResource("2_xian5")
+region_enabled = true
+region_rect = Rect2(42.771, 14.3256, 13.4508, 79.9843)
+
+[node name="control" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="control"]
+texture_filter = 1
+position = Vector2(0, 123)
+scale = Vector2(4, 4)
+texture = ExtResource("3_wuimh")
+region_enabled = true
+region_rect = Rect2(3.86367, 0.875108, 8.31374, 14.2948)
+
+[node name="Area2D" type="Area2D" parent="control"]
+position = Vector2(0, 123)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="control/Area2D"]
+shape = SubResource("RectangleShape2D_dlm30")
+
+[node name="flame" type="Node2D" parent="."]
+script = ExtResource("4_wuimh")
+
+[node name="flame_anim" type="AnimatedSprite2D" parent="flame"]
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_mi8yf")
+frame_progress = 0.919264
+speed_scale = 1.2
+
+[node name="Area2D" type="Area2D" parent="flame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flame/Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_o2php")
+
+[node name="progress" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = 31.0
+offset_top = -134.0
+offset_right = 161.0
+offset_bottom = -10.0
+max_value = 500.0
+value = 125.0
+fill_mode = 4
+radial_center_offset = Vector2(0.5, 0.5)
+nine_patch_stretch = true
+texture_under = ExtResource("6_p08t8")
+texture_over = ExtResource("7_o2php")
+texture_progress = ExtResource("7_p08t8")

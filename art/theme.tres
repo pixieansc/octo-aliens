@@ -1,0 +1,35 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://knaokeguk46g"]
+
+[ext_resource type="FontFile" uid="uid://bvmjcdiibl1ep" path="res://art/pixel-font.ttf" id="1_mp86n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ya4ey"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp86n"]
+bg_color = Color(1, 0.972549, 0.882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85g3d"]
+bg_color = Color(1, 0.92549, 0.701961, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.792157, 0.156863, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 20
+expand_margin_top = 6.0
+
+[resource]
+Label/colors/font_color = Color(1, 0.792157, 0.156863, 1)
+Label/colors/font_outline_color = Color(1, 0.792157, 0.156863, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_mp86n")
+Label/styles/normal = SubResource("StyleBoxEmpty_ya4ey")
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 40
+MarginContainer/constants/margin_right = 40
+MarginContainer/constants/margin_top = 0
+Panel/styles/panel = SubResource("StyleBoxFlat_mp86n")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_85g3d")

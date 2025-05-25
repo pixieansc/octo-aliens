@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddccxicbak2yb"]
+
+[ext_resource type="Texture2D" uid="uid://vugt4sf4akg5" path="res://art/background.png" id="1_u4wd2"]
+[ext_resource type="Texture2D" uid="uid://crysvub2lhlxy" path="res://art/plate.png" id="2_w18ys"]
+
+[node name="home" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 0.000265992
+scale = Vector2(4, 4)
+texture = ExtResource("1_u4wd2")
+centered = false
+
+[node name="plate" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(303, 432)
+rotation = 0.0174533
+scale = Vector2(4, 4)
+texture = ExtResource("2_w18ys")

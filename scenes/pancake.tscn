@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://bodbn6gfbp7pk"]
+
+[ext_resource type="Script" uid="uid://bkcf6o638atdp" path="res://scripts/stack.gd" id="1_pi0fa"]
+[ext_resource type="Texture2D" uid="uid://ced8xheifrfp4" path="res://art/pancake.png" id="2_n58r6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt4ig"]
+atlas = ExtResource("2_n58r6")
+region = Rect2(0, 0, 60, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ssyo"]
+atlas = ExtResource("2_n58r6")
+region = Rect2(60, 0, 60, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi0fa"]
+atlas = ExtResource("2_n58r6")
+region = Rect2(120, 0, 60, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n58r6"]
+atlas = ExtResource("2_n58r6")
+region = Rect2(180, 0, 60, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6lwxe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt4ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ssyo")
+}],
+"loop": true,
+"name": &"cooked",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi0fa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n58r6")
+}],
+"loop": true,
+"name": &"raw",
+"speed": 2.0
+}]
+
+[node name="pancake" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_pi0fa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6lwxe")
+animation = &"cooked"
